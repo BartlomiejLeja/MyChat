@@ -1,0 +1,18 @@
+﻿<Window x:Class="MyChat.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MyChat"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <TextBox x:Name="UserNameTextBox" HorizontalAlignment="Left" Height="19.96" Margin="10,31.562,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="LoginButton" Content="Login" Margin="135,31.562,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="75" Click="LoginButton_Click"/>
+        <TextBox x:Name="TextDispalyTexBox" Margin="10,67.811,10,82.351"/>
+        <TextBox x:Name="MessageTextBox" Height="19.96" Margin="10,0,90,36.883" TextWrapping="Wrap" VerticalAlignment="Bottom"/>
+        <Button x:Name="SendButton" Content="Send" Margin="0,0,10,36.883" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="75" IsDefault="True" Click="SendButton_Click"/>
+        <Label x:Name="WelcomLabel" HorizontalAlignment="Right" Margin="0,31.562,10,0" VerticalAlignment="Top" Width="105.188"/>
+
+    </Grid>
+</Window>
