@@ -10,5 +10,8 @@ namespace ChatingInterfaces
     {
         [OperationContract]
         void GetMessage(string message, string userName);//operacja klienta kontrak klienta
+
+        [OperationContract]
+        void GetUpdate(int value,string userName);//odświezanie listy osób zalogowanych
     }
 }

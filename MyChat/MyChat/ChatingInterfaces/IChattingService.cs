@@ -15,6 +15,9 @@ namespace ChatingInterfaces //ServiceLibrary fajne oddzielenie interfejsów od r
          int Login(string userName);
         [OperationContract]
          void SendMessageToALL(string message, string userName);
-            
+        [OperationContract]
+        void LogOut();
+        [OperationContract]
+        List<string> GetCurrentUsers();
      }
 }

@@ -27,8 +27,15 @@ namespace MyChat
         public MainWindow()
         {
             InitializeComponent();
-            _channelFactory = new DuplexChannelFactory<IChattingService>(new ClientCallback(), "ChattingServiceEndPoint");
-            Server = _channelFactory.CreateChannel();
+            try
+            {
+                _channelFactory = new DuplexChannelFactory<IChattingService>(new ClientCallback(), "ChattingServiceEndPoint");
+                Server = _channelFactory.CreateChannel();
+            }
+           catch(Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
         }
 
         public void TakeMessage(string message, string userName)
@@ -51,20 +58,61 @@ namespace MyChat
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
-            int returnValue = Server.Login(UserNameTextBox.Text);
-            if (returnValue == 1)
+            try
             {
-                MessageBox.Show("You are alredy log");
+                int returnValue = Server.Login(UserNameTextBox.Text);
+                if (returnValue == 1)
+                {
+                    MessageBox.Show("You are alredy log");
+                }
+                else
+                {
+
+                    MessageBox.Show("You log");
+                    WelcomLabel.Content = "Welcom" + UserNameTextBox.Text;
+                    UserNameTextBox.IsEnabled = false;
+                    LoginButton.IsEnabled = false;
+
+                    LoadUserList(Server.GetCurrentUsers());
+
+                }
             }
-            else
+            catch (Exception ex)
             {
-
-                MessageBox.Show("You log");
-                WelcomLabel.Content = "Welcom" + UserNameTextBox.Text;
-                UserNameTextBox.IsEnabled = false;
-                LoginButton.IsEnabled = false;
+                MessageBox.Show(ex.Message);
             }
 
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            Server.LogOut();
+        }
+
+        public void AddUserToList(string userName)
+        {
+            if(UsersListBox.Items.Contains(userName))
+            {
+                return;
+            }
+            UsersListBox.Items.Add(userName);
+        }
+
+        public void RemoveUserToList(string userName)
+        {
+            if (UsersListBox.Items.Contains(userName))
+            {
+                UsersListBox.Items.Remove(userName);
+            }
+           
+        }
+
+        private void LoadUserList(List<string> users)
+        {
+            foreach(var user in users)
+            {
+                AddUserToList(user);
+            }
         }
     }
 }

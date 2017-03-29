@@ -5,14 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MyChat"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="350" Width="560.843" Closing="Window_Closing">
     <Grid>
-        <TextBox x:Name="UserNameTextBox" HorizontalAlignment="Left" Height="19.96" Margin="10,31.562,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="LoginButton" Content="Login" Margin="135,31.562,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="75" Click="LoginButton_Click"/>
-        <TextBox x:Name="TextDispalyTexBox" Margin="10,67.811,10,82.351"/>
-        <TextBox x:Name="MessageTextBox" Height="19.96" Margin="10,0,90,36.883" TextWrapping="Wrap" VerticalAlignment="Bottom"/>
-        <Button x:Name="SendButton" Content="Send" Margin="0,0,10,36.883" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="75" IsDefault="True" Click="SendButton_Click"/>
-        <Label x:Name="WelcomLabel" HorizontalAlignment="Right" Margin="0,31.562,10,0" VerticalAlignment="Top" Width="105.188"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <TextBox x:Name="UserNameTextBox" HorizontalAlignment="Left" Height="20" Margin="10,32,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="LoginButton" Content="Login" Margin="135,32,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="75" Click="LoginButton_Click"/>
+        <TextBox x:Name="TextDispalyTexBox" Margin="10,68,176,82"/>
+        <TextBox x:Name="MessageTextBox" Height="20" Margin="10,0,256,37" TextWrapping="Wrap" VerticalAlignment="Bottom"/>
+        <Button x:Name="SendButton" Content="Send" Margin="0,0,176,37" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="75" IsDefault="True" Click="SendButton_Click"/>
+        <Label x:Name="WelcomLabel" HorizontalAlignment="Right" Margin="0,32,10,0" VerticalAlignment="Top" Width="105"/>
+        <ListBox x:Name="UsersListBox" HorizontalAlignment="Left" Height="193" Margin="398,93,0,0" VerticalAlignment="Top" Width="132"/>
+        <Label x:Name="label" Content="Users:" HorizontalAlignment="Left" Margin="398,67,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>
